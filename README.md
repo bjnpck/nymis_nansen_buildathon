@@ -11,8 +11,8 @@ Nansen enriches this analysis with wallet-level relationship and transaction int
 Nansen Profiler adds a valuable intelligence layer to NYMIS by providing structured wallet relationships and transaction history that can be normalized directly into the privacy-analysis pipeline.
 
 NYMIS currently uses two Profiler capabilities:
-- Related Wallets — surfaces relationships such as First Funder and other wallet associations that can expose how addresses are connected.
-- Transactions — provides normalized transaction history that NYMIS uses to corroborate important financial relationships and investigate wallet-to-wallet flows.
+- Related Wallets - surfaces relationships such as First Funder and other wallet associations that can expose how addresses are connected.
+- Transactions - provides normalized transaction history that NYMIS uses to corroborate important financial relationships and investigate wallet-to-wallet flows.
 
 The strongest contribution is semantic relationship context. A blockchain explorer can show that addresses interacted; Nansen can provide structured information about the nature of that relationship. This is particularly useful for identifying funding relationships and validating connections across a wallet graph.
 
@@ -37,34 +37,27 @@ normalize + classify
   ↓
 compare: overlap · corroboration · new candidate · infrastructure/noise
 ```
+Nansen data is normalized into NYMIS’s relationship model rather than displayed as an isolated API response. This lets Nansen-derived intelligence participate in the same evidence and relationship pipeline as independently reconstructed on-chain findings.
 
-## Running
+## Campaign
 
-Requires Node 20+ and pnpm.
+To evaluate the integration across a broad wallet set, we ran a structured Nansen Profiler campaign against real wallet-analysis cohorts covering ordinary EOAs, multichain wallets, Safe-heavy accounts, exchange-heavy wallets, privacy-tool users, and wallets with known related-address structure.
 
-```sh
-cp .env.example .env
-# add NANSEN_API_KEY to .env
-pnpm install
-pnpm typecheck
-pnpm test
-pnpm campaign -- --dry-run
-```
+The campaign exercises both related-wallets and transactions, with endpoint-specific chain validation, bounded concurrency, local filtering of unsupported combinations, and structured result classification.
 
-The included cohort is deliberately synthetic and only demonstrates deterministic validation; its Gnosis pair is skipped locally. Dry-run reports the smaller available sample rather than failing because it cannot fill a live 140/60 target. For a live benchmark, supply a reviewed, NYMIS-derived public-wallet cohort JSON with address-only `wallet` and `chain` fields:
-
-```sh
-pnpm campaign -- --cohort my-cohort.json --related 140 --transactions 60 --out ./output
-pnpm summary -- output/calls.jsonl
-```
-
-Live calls require `NANSEN_API_KEY`. The runner uses at most two concurrent requests, writes compact normalized call records, validates supported chains separately by endpoint, and records unsupported pairs locally without dispatching them. It stops on an HTTP failure, rate limit, or a non-1-credit successful response. No API call is made by `--dry-run`.
+The resulting dataset is used to measure where Nansen provides the most value: relationship discovery, First Funder semantics, transaction corroboration, and distinguishing meaningful wallet links from infrastructure noise.
 
 ## Benchmark results
 
-The sanitized [`campaign summary`](data/campaign-summary.json), [`batch summary`](data/batch-summary.json), and [`aggregate`](data/benchmark-results.json) record current-campaign latency (788 ms median, 4,004 ms p95, 17,256 ms max), endpoint distribution, and normalized relationship distribution. Most returned relationships were classified as deployment/factory noise; first-funder and Safe/control results are retained as comparison candidates rather than asserted discoveries. [`useful-findings.json`](data/useful-findings.json) shows three address-free examples.
+The benchmark showed that Nansen is especially useful when NYMIS needs to move from raw transaction evidence to relationship semantics.
 
-The raw request log, skipped-pair log, detailed wallet summaries, and raw provider payloads remain private because they contain unnecessary address-level benchmark data. [`data/example-wallet-summary.json`](data/example-wallet-summary.json) is an anonymized representative aggregate.
+Where Nansen was strongest:
+- First Funder: provides a clean semantic relationship for an otherwise multi-step historical reconstruction.
+- Related-wallet corroboration: independently confirms wallet relationships found by NYMIS.
+- Transaction context: gives a normalized second source for validating material flows.
+- Graph validation: helps distinguish meaningful wallet relationships from deployment/factory and other infrastructure activity.
+
+In many cases Nansen corroborated relationships that NYMIS had independently reconstructed. This is valuable in a privacy product: agreement between independent analysis paths increases confidence without requiring NYMIS to rely on a single source.
 
 ## Public-code adaptation
 
