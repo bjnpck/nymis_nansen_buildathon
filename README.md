@@ -50,7 +50,7 @@ Wallet
 
 Nansen data is normalized into NYMIS’s relationship model rather than displayed as an isolated API response. This lets Nansen-derived intelligence participate in the same evidence and relationship pipeline as independently reconstructed on-chain findings.
 
-## Campaign
+## Nansen Analysis Campaign
 
 To evaluate the integration across a broad wallet set, we ran a structured Nansen Profiler campaign against real wallet-analysis cohorts covering ordinary EOAs, multichain wallets, Safe-heavy accounts, exchange-heavy wallets, privacy-tool users, and wallets with known related-address structure.
 
@@ -72,11 +72,21 @@ In many cases Nansen corroborated relationships that NYMIS had independently rec
 
 ## Public-code adaptation
 
-The source NYMIS campaign constructed its cohort from private local activity caches and a local label database. This export replaces only that cohort loader with an explicit JSON input. The following behavior is preserved: request bodies, endpoint-specific supported-chain checks, address-only dispatch, concurrency limit, batch scheduling, compact artifact records, and result classification. No private database, filesystem path, or production configuration is required.
+This repository contains the Nansen-facing portion of the NYMIS analysis workflow used for the Buildathon.
 
-## Privacy and safety
+The public export preserves the core campaign behavior:
 
-No API keys, authorization headers, raw responses, production hosts, deployment commands, or private NYMIS datasets are included. `.env` and generated output are ignored by Git.
+- Nansen request construction and authentication
+- endpoint-specific chain validation
+- address-only dispatch
+- bounded concurrency
+- batch scheduling
+- compact result logging
+- relationship and transaction classification
+
+Private NYMIS datasets, local caches, production configuration, deployment code, and unrelated provider integrations are intentionally excluded.
+
+The campaign cohort is supplied through explicit JSON input so the Nansen integration can be reviewed and run independently without access to the private NYMIS environment.
 
 ## License
 
