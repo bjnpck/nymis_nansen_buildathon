@@ -1,19 +1,26 @@
 # NYMIS × Nansen
 
-NYMIS is a wallet privacy scanner that reconstructs what can be inferred from a public blockchain address: identity exposure, exchange interactions, Safe/control relationships, related wallets, funding origin, privacy-tool use, and financial relationships.
+NYMIS is a wallet privacy scanner that shows what can be inferred about a person from a public blockchain address.
 
-This is a small, public benchmark slice—not the NYMIS production application. It contains the real Nansen request, validation, normalization, and classification path used for the campaign, plus sanitized results. The private NYMIS cohort, provider responses, infrastructure, scoring system, and deployment code are intentionally excluded.
+It reconstructs identity exposure, related wallets, exchange interactions, Safe/control relationships, funding history, privacy-tool usage, and material financial relationships, then presents those findings as an explainable privacy report and relationship graph.
+
+Nansen enriches this analysis with wallet-level relationship and transaction intelligence, adding semantic context that is difficult to derive reliably from raw on-chain activity alone.
 
 ## Nansen integration
 
-Nansen Profiler is an external intelligence and validation layer. It is not in the normal NYMIS production scan path.
+Nansen Profiler adds a valuable intelligence layer to NYMIS by providing structured wallet relationships and transaction history that can be normalized directly into the privacy-analysis pipeline.
 
-The benchmark uses two endpoints:
+NYMIS currently uses two Profiler capabilities:
+- Related Wallets — surfaces relationships such as First Funder and other wallet associations that can expose how addresses are connected.
+- Transactions — provides normalized transaction history that NYMIS uses to corroborate important financial relationships and investigate wallet-to-wallet flows.
 
-- `POST /api/v1/profiler/address/related-wallets`
-- `POST /api/v1/profiler/address/transactions`
+The strongest contribution is semantic relationship context. A blockchain explorer can show that addresses interacted; Nansen can provide structured information about the nature of that relationship. This is particularly useful for identifying funding relationships and validating connections across a wallet graph.
 
-Nansen results are normalized then compared with relationships independently reconstructed by NYMIS. The benchmark focuses on first funders, Safe signer/co-signer relationships, related-wallet evidence, transaction corroboration, potentially new useful candidates, and deployment/factory noise. A Nansen result is never treated here as an automatic production discovery; candidates require independent NYMIS evidence before promotion.
+NYMIS combines this intelligence with its own relationship analysis and classifies the result as:
+- corroborating an independently observed relationship;
+- adding useful semantic context;
+- revealing a previously unidentified relationship; or
+- infrastructure/deployment noise that should not be presented as a meaningful privacy finding.
 
 ## Architecture
 
