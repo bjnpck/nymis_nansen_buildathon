@@ -53,12 +53,6 @@ pnpm summary -- output/calls.jsonl
 
 Live calls require `NANSEN_API_KEY`. The runner uses at most two concurrent requests, writes compact normalized call records, validates supported chains separately by endpoint, and records unsupported pairs locally without dispatching them. It stops on an HTTP failure, rate limit, or a non-1-credit successful response. No API call is made by `--dry-run`.
 
-## Campaign
-
-The documented project total is **628 evidenced successful Nansen API calls**. The current campaign contributed 556 successes: 388 related-wallet calls and 168 transaction calls. There were 94 earlier Gnosis validation failures (HTTP 422) and zero rate limits; endpoint-specific validation now skips Gnosis before dispatch. The campaign uses bounded concurrency and does not use the costly labels endpoint.
-
-Additional calls were paused after shared-key credit accounting showed unrelated/unattributed balance movement. This submission therefore does not claim 1,000 calls.
-
 ## Benchmark results
 
 The sanitized [`campaign summary`](data/campaign-summary.json), [`batch summary`](data/batch-summary.json), and [`aggregate`](data/benchmark-results.json) record current-campaign latency (788 ms median, 4,004 ms p95, 17,256 ms max), endpoint distribution, and normalized relationship distribution. Most returned relationships were classified as deployment/factory noise; first-funder and Safe/control results are retained as comparison candidates rather than asserted discoveries. [`useful-findings.json`](data/useful-findings.json) shows three address-free examples.
