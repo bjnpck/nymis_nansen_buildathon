@@ -87,7 +87,3 @@ The public export preserves the core campaign behavior:
 Private NYMIS datasets, local caches, production configuration, deployment code, and unrelated provider integrations are intentionally excluded.
 
 The campaign cohort is supplied through explicit JSON input so the Nansen integration can be reviewed and run independently without access to the private NYMIS environment.
-
-## License
-
-The parent NYMIS repository has no explicit license. No license is included here so that a publisher does not accidentally grant terms they do not own. Choose and add an appropriate license before publishing.
