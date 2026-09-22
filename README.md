@@ -26,17 +26,26 @@ NYMIS combines this intelligence with its own relationship analysis and classifi
 
 ```text
 Wallet
-  ↓
-NYMIS independent analysis
-  ↓
-relationship graph / privacy findings
-  ↓
-Nansen Profiler benchmark
-  ↓
-normalize + classify
-  ↓
-compare: overlap · corroboration · new candidate · infrastructure/noise
-```
+  │
+  ├── NYMIS on-chain analysis
+  │     ├── identity exposure
+  │     ├── exchanges / privacy tools
+  │     ├── Safe & control relationships
+  │     ├── funding relationships
+  │     └── related wallets
+  │
+  └── Nansen Profiler
+        ├── Related Wallets
+        └── Transactions
+              │
+              ▼
+       normalize + classify
+              │
+              ▼
+        NYMIS relationship graph
+              │
+              ▼
+   privacy findings + ChainMap
 Nansen data is normalized into NYMIS’s relationship model rather than displayed as an isolated API response. This lets Nansen-derived intelligence participate in the same evidence and relationship pipeline as independently reconstructed on-chain findings.
 
 ## Campaign
