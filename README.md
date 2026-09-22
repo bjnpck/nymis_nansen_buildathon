@@ -45,7 +45,8 @@ Wallet
         NYMIS relationship graph
               │
               ▼
-   privacy findings + ChainMap
+   privacy findings + ChainMap```
+
 Nansen data is normalized into NYMIS’s relationship model rather than displayed as an isolated API response. This lets Nansen-derived intelligence participate in the same evidence and relationship pipeline as independently reconstructed on-chain findings.
 
 ## Campaign
