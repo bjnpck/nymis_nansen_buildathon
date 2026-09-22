@@ -1,0 +1,15 @@
+{
+  "name": "nymis-nansen-benchmark",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone Nansen Profiler benchmark harness extracted from NYMIS",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "typecheck": "node --check src/chains.mjs && node --check src/nansen-client.mjs && node --check src/classify.mjs && node --check scripts/run-campaign.mjs && node --check scripts/summarize.mjs && node --check scripts/self-check.mjs",
+    "test": "node scripts/self-check.mjs",
+    "campaign": "node scripts/run-campaign.mjs",
+    "summary": "node scripts/summarize.mjs"
+  },
+  "packageManager": "pnpm@11.10.0"
+}

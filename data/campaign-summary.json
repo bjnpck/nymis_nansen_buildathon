@@ -1,0 +1,17 @@
+{
+  "scope": "Sanitized public projection of the private campaign summary.",
+  "status": "paused_after_shared_key_accounting_guard",
+  "evidencedProjectSuccessfulCalls": 628,
+  "currentCampaign": {
+    "attempts": 650,
+    "successfulBilledCalls": 556,
+    "failedUnbilledAttempts": 94,
+    "rateLimits": 0,
+    "successfulEndpointCounts": {
+      "related-wallets": 388,
+      "transactions": 168
+    }
+  },
+  "validationOutcome": "Gnosis pairs returned HTTP 422 on both endpoints and are now skipped before dispatch.",
+  "privacy": "No addresses, balances, credentials, authorization headers, or raw provider responses are included."
+}

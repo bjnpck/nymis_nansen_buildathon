@@ -1,0 +1,46 @@
+{
+  "scope": "Sanitized public aggregate of the documented September 2026 campaign. Identifiers and raw provider responses are intentionally omitted.",
+  "evidencedProjectSuccessfulCalls": 628,
+  "currentCampaign": {
+    "successfulCalls": 556,
+    "failedUnbilledAttempts": 94,
+    "rateLimits": 0,
+    "endpointSuccesses": {
+      "related-wallets": 388,
+      "transactions": 168
+    },
+    "latencyMs": { "median": 788, "p95": 4004, "max": 17256 },
+    "relationshipDistribution": {
+      "First Funder": 274,
+      "Safe signer / co-signer / historical signer": 239,
+      "deployment/factory noise": 1157,
+      "other": 8
+    }
+  },
+  "examples": [
+    {
+      "wallet": "wallet_example_a",
+      "chain": "ethereum",
+      "nansenRelationship": "First Funder",
+      "normalizedCategory": "First Funder",
+      "nymisComparison": "Not present in the bounded local comparison evidence",
+      "classification": "candidate for independent verification"
+    },
+    {
+      "wallet": "wallet_example_b",
+      "chain": "ethereum",
+      "nansenRelationship": "Multisig Signer of",
+      "normalizedCategory": "Safe signer / co-signer / historical signer",
+      "nymisComparison": "Compared as a candidate; not promoted without NYMIS evidence",
+      "classification": "corroborating relationship candidate"
+    },
+    {
+      "wallet": "wallet_example_c",
+      "chain": "ethereum",
+      "nansenRelationship": "Contract Creator",
+      "normalizedCategory": "deployment/factory noise",
+      "nymisComparison": "Excluded from user-facing relationship findings",
+      "classification": "noise"
+    }
+  ]
+}

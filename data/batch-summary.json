@@ -1,0 +1,9 @@
+[
+  { "checkpoint": 1, "attempts": 100, "successes": 82, "failures": 18, "rateLimits": 0, "latencyMs": { "median": 873, "p95": 3559, "max": 4780 } },
+  { "checkpoint": 2, "attempts": 100, "successes": 74, "failures": 26, "rateLimits": 0, "latencyMs": { "median": 864, "p95": 3698, "max": 5371 } },
+  { "checkpoint": 3, "attempts": 100, "successes": 76, "failures": 24, "rateLimits": 0, "latencyMs": { "median": 781, "p95": 3408, "max": 4290 } },
+  { "checkpoint": 4, "attempts": 100, "successes": 74, "failures": 26, "rateLimits": 0, "latencyMs": { "median": 719, "p95": 3301, "max": 4323 } },
+  { "checkpoint": 5, "attempts": 100, "successes": 100, "failures": 0, "rateLimits": 0, "latencyMs": { "median": 806, "p95": 4885, "max": 17256 } },
+  { "checkpoint": 6, "attempts": 100, "successes": 100, "failures": 0, "rateLimits": 0, "latencyMs": { "median": 759, "p95": 4212, "max": 14393 } },
+  { "checkpoint": 7, "attempts": 50, "successes": 50, "failures": 0, "rateLimits": 0, "latencyMs": { "median": 649, "p95": 2557, "max": 4065 } }
+]

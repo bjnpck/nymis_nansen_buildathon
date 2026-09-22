@@ -1,0 +1,11 @@
+{
+  "wallet": "wallet_example_01",
+  "cohort": "ordinary-eoa",
+  "calls": 8,
+  "successfulCalls": 6,
+  "resultRows": 68,
+  "nymisConfirmed": 55,
+  "candidateFindings": 3,
+  "infrastructureNoise": 29,
+  "note": "A real campaign aggregate with wallet identifiers removed."
+}

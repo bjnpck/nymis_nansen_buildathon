@@ -1,0 +1,23 @@
+{
+  "scope": "Sanitized representative classifications from the campaign; these are comparison candidates, not production identity or relationship promotions.",
+  "examples": [
+    {
+      "nansenRelationship": "First Funder",
+      "normalizedCategory": "First Funder",
+      "comparison": "not present in bounded local comparison evidence",
+      "outcome": "candidate for independent NYMIS verification"
+    },
+    {
+      "nansenRelationship": "Multisig Signer of",
+      "normalizedCategory": "Safe signer / co-signer / historical signer",
+      "comparison": "compared as a Safe/control relationship candidate",
+      "outcome": "corroborating candidate; no automatic promotion"
+    },
+    {
+      "nansenRelationship": "Contract Creator",
+      "normalizedCategory": "deployment/factory noise",
+      "comparison": "excluded from user-facing relationship findings",
+      "outcome": "noise"
+    }
+  ]
+}

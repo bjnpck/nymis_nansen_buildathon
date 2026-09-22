@@ -1,0 +1,18 @@
+[
+  {
+    "wallet": "0x0000000000000000000000000000000000000001",
+    "chain": "ethereum",
+    "cohort": "example",
+    "knownAddresses": [],
+    "knownHashes": [],
+    "hasLocalEvidence": false
+  },
+  {
+    "wallet": "0x0000000000000000000000000000000000000002",
+    "chain": "gnosis",
+    "cohort": "validation-example",
+    "knownAddresses": [],
+    "knownHashes": [],
+    "hasLocalEvidence": false
+  }
+]
